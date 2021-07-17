@@ -6,12 +6,12 @@
   "license": "MIT",
   "devDependencies": {
     "@parcel/transformer-sass": "2.0.0-beta.3.1",
-    "parcel": "^2.0.0-beta.3.1",
+    "parcel": "^2.0.xkb0-beta.3.1",
     "rimraf": "^3.0.2"
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url https://public.nikhil.io/cistercian",
     "start": "parcel src/index.html"
   },
   "dependencies": {
