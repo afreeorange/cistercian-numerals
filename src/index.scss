@@ -1,0 +1,75 @@
+@use "sass:math";
+
+$glyph-width: 212px;
+$glyph-height: 324px;
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  text-align: center;
+}
+
+#numerals {
+  
+  background-color: aliceblue;
+}
+
+input {
+  width: 50%;
+  font-size: 1.5em;
+  margin-bottom: 3em;
+}
+
+main {
+  width: 300px;
+  margin: 0 auto;
+  background-color: aliceblue;
+}
+
+div[data-number] {
+  background-image: url("./sprite.png");
+  background-repeat: no-repeat;
+  height: $glyph-height;
+  position: absolute;
+  width: $glyph-width;
+}
+
+@each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
+  div[data-number="#{$i}"] {
+    background-position: (-1) *
+      ($i - 1) *
+      ($glyph-width + math.div($glyph-width, 2) + 2px)
+      0px;
+  }
+}
+
+@each $i in 10, 20, 30, 40, 50, 60, 70, 80, 90 {
+  div[data-number="#{$i}"] {
+    background-position: (-1) *
+      (math.div($i, 10) - 1) *
+      ($glyph-width + math.div($glyph-width, 2) + 2px)
+      0px;
+    transform: scaleX(-1);
+  }
+}
+
+@each $i in 100, 200, 300, 400, 500, 600, 700, 800, 900 {
+  div[data-number="#{$i}"] {
+    background-position: (-1) *
+      (math.div($i, 100) - 1) *
+      ($glyph-width + math.div($glyph-width, 2) + 2px)
+      0px;
+    transform: scaleY(-1);
+  }
+}
+
+@each $i in 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 {
+  div[data-number="#{$i}"] {
+    background-position: (-1) *
+      (math.div($i, 1000) - 1) *
+      ($glyph-width + math.div($glyph-width, 2) + 2px)
+      0px;
+    transform: scale(-1, -1);
+  }
+}
