@@ -1,7 +1,8 @@
 @use "sass:math";
 
-$glyph-width: 212px;
-$glyph-height: 324px;
+$glyph-width: 194px;
+$glyph-height: 350px;
+$glyph-gutter: 39px;
 
 html,
 body {
@@ -10,25 +11,25 @@ body {
   text-align: center;
 }
 
-#numerals {
-  
-  background-color: aliceblue;
+a {
+  color: black;
+  text-decoration-color: #666;
+}
+
+main {
+  width: $glyph-width;
+  margin: 0 auto;
 }
 
 input {
   width: 50%;
   font-size: 1.5em;
   margin-bottom: 3em;
-}
-
-main {
-  width: 300px;
-  margin: 0 auto;
-  background-color: aliceblue;
+  text-align: center;
 }
 
 div[data-number] {
-  background-image: url("./sprite.png");
+  background-image: url("./sprite-v2.png");
   background-repeat: no-repeat;
   height: $glyph-height;
   position: absolute;
@@ -38,8 +39,7 @@ div[data-number] {
 @each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
   div[data-number="#{$i}"] {
     background-position: (-1) *
-      ($i - 1) *
-      ($glyph-width + math.div($glyph-width, 2) + 2px)
+      (($i - 1) * $glyph-width + ($i - 1) * $glyph-gutter)
       0px;
   }
 }
@@ -47,8 +47,12 @@ div[data-number] {
 @each $i in 10, 20, 30, 40, 50, 60, 70, 80, 90 {
   div[data-number="#{$i}"] {
     background-position: (-1) *
-      (math.div($i, 10) - 1) *
-      ($glyph-width + math.div($glyph-width, 2) + 2px)
+      (
+        (math.div($i, 10) - 1) *
+          $glyph-width +
+          (math.div($i, 10) - 1) *
+          $glyph-gutter
+      )
       0px;
     transform: scaleX(-1);
   }
@@ -57,8 +61,12 @@ div[data-number] {
 @each $i in 100, 200, 300, 400, 500, 600, 700, 800, 900 {
   div[data-number="#{$i}"] {
     background-position: (-1) *
-      (math.div($i, 100) - 1) *
-      ($glyph-width + math.div($glyph-width, 2) + 2px)
+      (
+        (math.div($i, 100) - 1) *
+          $glyph-width +
+          (math.div($i, 100) - 1) *
+          $glyph-gutter
+      )
       0px;
     transform: scaleY(-1);
   }
@@ -67,8 +75,12 @@ div[data-number] {
 @each $i in 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 {
   div[data-number="#{$i}"] {
     background-position: (-1) *
-      (math.div($i, 1000) - 1) *
-      ($glyph-width + math.div($glyph-width, 2) + 2px)
+      (
+        (math.div($i, 1000) - 1) *
+          $glyph-width +
+          (math.div($i, 1000) - 1) *
+          $glyph-gutter
+      )
       0px;
     transform: scale(-1, -1);
   }

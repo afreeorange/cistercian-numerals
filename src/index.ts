@@ -6,8 +6,9 @@ const numberChunks = (n: number) => {
 };
 
 const handleInput = ({ target: { value: n } }) => {
-  if (!n) {
+  if (!n || n === "") {
     u("#numerals").html("Enter something...");
+    return;
   }
 
   if (n < 1 || n > 9999) {
@@ -16,9 +17,9 @@ const handleInput = ({ target: { value: n } }) => {
   }
 
   const chunks = numberChunks(n);
-    u("#numerals").html(
-      chunks.map((chunk) => `<div data-number="${chunk}"></div>`).join("")
-    );
+  u("#numerals").html(
+    chunks.map((chunk) => `<div data-number="${chunk}"></div>`).join("")
+  );
 };
 
 (() => {
