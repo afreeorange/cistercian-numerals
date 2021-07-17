@@ -11,21 +11,60 @@ body {
   text-align: center;
 }
 
-a {
+header a {
   color: black;
-  text-decoration-color: #666;
+  text-decoration-color: blue;
 }
 
 main {
-  width: $glyph-width;
+  width: $glyph-width * 2;
+  height: $glyph-height * 1.35;
   margin: 0 auto;
+  position: relative;
 }
 
-input {
-  width: 50%;
+input[type="tel"] {
+  width: 100%;
   font-size: 1.5em;
-  margin-bottom: 3em;
   text-align: center;
+  margin-bottom: 0.5em;
+}
+
+input[type="checkbox"] {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+small {
+  color: red;
+  margin-left: 2em;
+}
+
+#entry {
+  display: grid;
+  grid-template-columns: 80% auto;
+}
+
+#numerals {
+  margin-top: 2em;
+}
+
+#wrap {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  div {
+    text-align: left;
+  }
+
+  small {
+    text-align: right;
+  }
+}
+
+.flipped {
+  transform: rotate(-90deg);
+  transform-origin: 150px 150px;
 }
 
 div[data-number] {
@@ -34,6 +73,7 @@ div[data-number] {
   height: $glyph-height;
   position: absolute;
   width: $glyph-width;
+  left: math.div($glyph-width, 2);
 }
 
 @each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {

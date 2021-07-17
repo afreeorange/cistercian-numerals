@@ -19,15 +19,29 @@
     <link rel="stylesheet" href="./index.scss" />
   </head>
   <body>
-    <h1><a href="https://en.wikipedia.org/wiki/Cistercian_numerals">Cistercian Numeral</a> Generator</h1>
-    <input
-      type="tel"
-      placeholder="1 to 9999"
-      autofocus
-    />
+    <header>
+      <h1><a href="https://en.wikipedia.org/wiki/Cistercian_numerals">Cistercian Numeral</a> Generator</h1>
+    </header>
     <main>
+      <input
+        type="tel"
+        placeholder="1 to 9999"
+        autofocus
+      />
+
+      <div id="wrap">
+        <div>
+          <label for="flipped">Flipped</label>
+          <input type="checkbox" name="flipped" id="flipped">
+        </div>
+        <small>Enter something...</small>
+      </div>
+
       <div id="numerals"></div>
     </main>
+    <footer>
+      <p><a href="https://github.com/afreeorange">Source</a></p>
+    </footer>
     <script src="./index.ts"></script>
   </body>
 </html>
