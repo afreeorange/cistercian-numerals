@@ -9,4 +9,9 @@ yarn start
 
 # Build
 yarn build
+
+# Deploy
+yarn clean
+yarn build
+aws s3 sync --delete dist/ s3://public.nikhil.io/cistercian/
 ```
